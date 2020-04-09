@@ -11,9 +11,17 @@ const Todo = (props) => {
     <div>
       <input
         placeholder="Enter Todo"
+        value={text}
         onChange={(e) => setText(e.target.value)}
       ></input>
-      <button onClick={() => dispatch(addTodo(text))}>Add Todo</button>
+      <button
+        onClick={() => {
+          dispatch(addTodo(text));
+          setText("");
+        }}
+      >
+        Add Todo
+      </button>
 
       <div>
         {todos.map((item) => {
