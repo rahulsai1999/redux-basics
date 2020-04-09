@@ -13,10 +13,14 @@ export const todoSlice = createSlice({
     addTodo: (state, action) => {
       state.todos.push(action.payload);
     },
+    removeTodo: (state, action) => {
+      const index = state.todos.indexOf(action.payload);
+      state.todos.splice(index, 1);
+    },
   },
 });
 
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, removeTodo } = todoSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

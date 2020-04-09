@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, selectTodo } from "./todoSlice";
+import { addTodo, removeTodo, selectTodo } from "./todoSlice";
 
 const Todo = (props) => {
   const todos = useSelector(selectTodo);
@@ -17,7 +17,7 @@ const Todo = (props) => {
 
       <div>
         {todos.map((item) => {
-          return <p>{item}</p>;
+          return <p onClick={() => dispatch(removeTodo(item))}>{item}</p>;
         })}
       </div>
     </div>
