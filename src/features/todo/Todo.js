@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Input, Button, Row, Col, Space } from "antd";
-import { addTodo } from "./todoSlice";
+import { Input, Button, Row, Col, Space, Tabs } from "antd";
 
-import TabAll from "./tabs";
+import { addTodo } from "./todoSlice";
+import { TabAll, TabToComp, TabLeft } from "./tabs";
 
 const Todo = (props) => {
   const dispatch = useDispatch();
@@ -34,7 +34,17 @@ const Todo = (props) => {
       <br />
       <Row>
         <Col span={24}>
-          <TabAll />
+          <Tabs defaultActiveKey="1" tabPosition="left">
+            <Tabs.TabPane tab="All" key="All">
+              <TabAll />
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Completed" key="Completed">
+              <TabToComp />
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="To Complete" key="To Complete">
+              <TabLeft />
+            </Tabs.TabPane>
+          </Tabs>
         </Col>
       </Row>
     </div>
