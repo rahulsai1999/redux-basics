@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Input, Button, Checkbox, Row, Col, Space, List } from "antd";
-import { addTodo, removeTodo, toggleTodo, selectTodo } from "./todoSlice";
+import { useDispatch } from "react-redux";
+import { Input, Button, Row, Col, Space } from "antd";
+import { addTodo } from "./todoSlice";
+
+import TabAll from "./tabs";
 
 const Todo = (props) => {
-  const todos = useSelector(selectTodo);
   const dispatch = useDispatch();
   const [text, setText] = useState("");
 
@@ -33,28 +34,7 @@ const Todo = (props) => {
       <br />
       <Row>
         <Col span={24}>
-          <List
-            size="large"
-            bordered
-            dataSource={todos}
-            renderItem={(item) => (
-              <List.Item>
-                <Space>
-                  <Checkbox
-                    checked={item.completed}
-                    style={
-                      item.completed
-                        ? { textDecorationLine: "line-through" }
-                        : {}
-                    }
-                    onChange={() => dispatch(toggleTodo(item.id))}
-                  >
-                    {item.text}
-                  </Checkbox>
-                </Space>
-              </List.Item>
-            )}
-          />
+          <TabAll />
         </Col>
       </Row>
     </div>
