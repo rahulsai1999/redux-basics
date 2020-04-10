@@ -23,7 +23,9 @@ const TabAll = (props) => {
             <Checkbox
               checked={item.completed}
               style={
-                item.completed ? { textDecorationLine: "line-through" } : {}
+                item.completed
+                  ? { textDecorationLine: "line-through" }
+                  : { textDecorationLine: "none" }
               }
               onChange={() => dispatch(toggleTodo(item.id))}
             >
@@ -49,7 +51,9 @@ const TabToComp = (props) => {
             <Checkbox
               checked={item.completed}
               style={
-                item.completed ? { textDecorationLine: "line-through" } : {}
+                item.completed
+                  ? { textDecorationLine: "line-through" }
+                  : { textDecorationLine: "none" }
               }
               onChange={() => dispatch(toggleTodo(item.id))}
             >
@@ -75,7 +79,9 @@ const TabLeft = (props) => {
             <Checkbox
               checked={item.completed}
               style={
-                item.completed ? { textDecorationLine: "line-through" } : {}
+                item.completed
+                  ? { textDecorationLine: "line-through" }
+                  : { textDecorationLine: "none" }
               }
               onChange={() => dispatch(toggleTodo(item.id))}
             >

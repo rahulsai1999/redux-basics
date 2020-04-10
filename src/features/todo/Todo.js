@@ -13,28 +13,30 @@ const Todo = (props) => {
     <div>
       <h2>Todo App</h2>
       <Row>
-        <Space>
-          <Input
-            placeholder="Enter Todo"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <Button
-            type="primary"
-            size="middle"
-            onClick={() => {
-              dispatch(addTodo(text));
-              setText("");
-            }}
-          >
-            Add Todo
-          </Button>
-        </Space>
+        <Col span={24}>
+          <Space>
+            <Input
+              placeholder="Enter Todo"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <Button
+              type="primary"
+              size="middle"
+              onClick={() => {
+                dispatch(addTodo(text));
+                setText("");
+              }}
+            >
+              Add Todo
+            </Button>
+          </Space>
+        </Col>
       </Row>
       <br />
       <Row>
         <Col span={24}>
-          <Tabs defaultActiveKey="1" tabPosition="left">
+          <Tabs defaultActiveKey="1" tabPosition="top">
             <Tabs.TabPane tab="All" key="All">
               <TabAll />
             </Tabs.TabPane>
