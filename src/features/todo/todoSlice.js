@@ -33,5 +33,9 @@ export const { addTodo, removeTodo, toggleTodo } = todoSlice.actions;
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 // state.<name of action/slice>.<name of variable given in initial state>
 export const selectTodo = (state) => state.todo.todos;
+export const selectTodoComp = (state) =>
+  state.todo.todos.filter((item) => item.completed === true);
+export const selectTodoLeft = (state) =>
+  state.todo.todos.filter((item) => item.completed === false);
 
 export default todoSlice.reducer;
