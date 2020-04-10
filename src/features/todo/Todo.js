@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, removeTodo, selectTodo } from "./todoSlice";
+import { Input, Button, Checkbox } from "antd";
+import { addTodo, removeTodo, toggleTodo, selectTodo } from "./todoSlice";
 
 const Todo = (props) => {
   const todos = useSelector(selectTodo);
@@ -9,23 +10,40 @@ const Todo = (props) => {
 
   return (
     <div>
-      <input
+      <Input
         placeholder="Enter Todo"
         value={text}
         onChange={(e) => setText(e.target.value)}
-      ></input>
-      <button
+      ></Input>
+      <Button
+        type="primary"
+        size="middle"
         onClick={() => {
           dispatch(addTodo(text));
           setText("");
         }}
       >
         Add Todo
-      </button>
+      </Button>
 
       <div>
-        {todos.map((item) => {
-          return <p onClick={() => dispatch(removeTodo(item))}>{item}</p>;
+        <br />
+        {todos.map((item, key) => {
+          return (
+            <div key={key} style={{ flexDirection: "row" }}>
+              <Checkbox
+                checked={item.completed}
+                onChange={() => dispatch(toggleTodo(item.id))}
+              ></Checkbox>
+              <p
+                style={
+                  item.completed ? { textDecorationLine: "line-through" } : {}
+                }
+              >
+                {item.text}
+              </p>
+            </div>
+          );
         })}
       </div>
     </div>

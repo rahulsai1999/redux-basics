@@ -11,21 +11,27 @@ export const todoSlice = createSlice({
   // immutable state based off those changes
   reducers: {
     addTodo: (state, action) => {
-      state.todos.push(action.payload);
+      let id = state.todos.length;
+      state.todos.push({ id: ++id, text: action.payload, completed: false });
     },
     removeTodo: (state, action) => {
-      const index = state.todos.indexOf(action.payload);
+      const index = action.payload - 1;
       state.todos.splice(index, 1);
+    },
+    toggleTodo: (state, action) => {
+      const index = action.payload;
+      let x = state.todos.findIndex((obj) => obj.id === index);
+      state.todos[x].completed = !state.todos[x].completed;
     },
   },
 });
 
-export const { addTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, toggleTodo } = todoSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
-
+// state.<name of action/slice>.<name of variable given in initial state>
 export const selectTodo = (state) => state.todo.todos;
 
 export default todoSlice.reducer;
