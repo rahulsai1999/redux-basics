@@ -17,3 +17,7 @@
 - [todoSlice.js](src/features/todo/todoSlice.js) contains the logic of the whole application. This file contains a createSlice function, which takes initial state and reducers and automatically generates all necessary code for the actions and action generators.
 - [Todo.js](src/features/todo/Todo.js) is the top level component which houses the UI for the Todo-application. These have the dispatch hook useDispatch() in order to modify the state.
 - [Tabs.js](src/features/todo/Tabs.js) contains Tab Components for the [Todo.js](src/features/todo/Todo.js). These contain the selector hook useSelector in order to get data from the generated slice and show it in the form of the list.
+
+## Workflow
+
+![workflow_image](docs/workflow.jpeg)
