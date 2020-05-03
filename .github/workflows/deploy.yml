@@ -1,0 +1,21 @@
+name: EC2 deployment
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@master
+      - name: setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: build
+        run: npm ci && npm run build
+        env:
+          CI: ""
+      - name: deploy
+        run: npm run deploy # gh-pages -d build
