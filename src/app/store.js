@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoReducer from "../features/todo/todoSlice";
+import apiReducer from "../features/rickandmorty/apiSlice";
 
 export default configureStore({
   reducer: {
-    todo: todoReducer,
+    api: apiReducer,
   },
 });

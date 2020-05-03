@@ -1,4 +1,4 @@
-# Redux Basics
+# Redux Basics ![GH-Pages deployment](https://github.com/rahulsai1999/redux-basics/workflows/GH-Pages%20deployment/badge.svg)
 
 - Redux allows us to store the state of the application under a single **store** which is accessible for all components.
 - This reduces the need for complex state logic and large props to be passed down to components.
