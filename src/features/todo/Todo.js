@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Input, Button, Row, Col, Space, Tabs } from "antd";
 
 import { addTodo } from "./todoSlice";
-import { TabAll, TabToComp, TabLeft } from "./Tabs";
+import { TabAll, TabToComp, TabLeft } from "./TabComp";
 
 const Todo = (props) => {
   const dispatch = useDispatch();
