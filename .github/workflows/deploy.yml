@@ -1,4 +1,4 @@
-name: EC2 deployment
+name: GH-Pages deployment
 
 on:
   push:
